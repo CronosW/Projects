@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="col-md-9">
+    <div class="billing-details">
+        <div class="section-title">
+            <h3 class="title">{{user.username}} Orders</h3>
+        </div>
+    </div>
+    <table class="user table">
+         <tr>
+             <th>Item</th>
+             <th>Subject</th>
+             <th>Comment</th>
+             <th>Created</th>
+             <th>Rate</th>
+            </tr>
+            {% for rs in comments %}
+
+        <tr>
+            <td class="text-left">{{rs.item}}</td>
+            <td class="text-left">{{rs.subject}}</td>
+            <td class="text-left">{{rs.comment}}</td>
+            <td>{{rs.created}}</td>
+            <td class="text-left">{{rs.rate}}</td>
+            {% endfor %}
+        </tr>
+    </table>
+
+</div>
+{% endblock %}

@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load currency %}
+{% currency_context %}
+<main>
+    <div class="view" style="background-image: url('/media/fundal.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+    <div class="container">
+
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark mdb-green  mt-3 mb-5" style="background-color: #333333;">
+
+            <!-- Navbar brand -->
+            <span class="navbar-brand">Categories:</span>
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+
+                <!-- Links -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">All
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories/headphones">Headphones</a></li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/categories/monitor">Monitor</a></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories/mouse">Mouse</a></li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/categories/keyboard">Keyboard</a></li>
+                    <a  href="/categories/offers" class="btn btn-danger btn-sm">Sales</a>
+
+                    {% for slug,name in breadcrumbs %}
+                    <li><a href="/categories/{{ slug }}">{{ name }}</a></li>
+                    {% endfor %}
+                </ul>
+                <!-- Links -->
+                <form class="navbar-form navbar-right" role="search" action="/s/" style="color: yellow;">
+                    <div class="md-form md-outline d-flex justify-content-between align-items-center">
+                        <input type="text" id="search12" class="form-control mb-0" placeholder="Search..." name="q">
+
+                        <button class="btn btn-flat btn-md px-3 waves-effect" style="color: gray;"><i class="fas fa-search fa-lg"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <!-- Collapsible content -->
+
+        </nav>
+        <!--/.Navbar-->
+
+        <!--Section: Products v.3-->
+        <section class="text-center mb-4">
+
+            <div class="row wow fadeIn">
+
+                {% for item in object_list %}
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="view overlay">
+                            {% comment %} <img
+                                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"
+                                class="card-img-top" {% endcomment %}
+                            <img src="{{ item.image.url }}" class="card-img-top" width="500" height="200">
+                            <a href="{{ item.get_absolute_url }}">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>{{ item.get_category_display }}</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
+
+                                    </a>
+                                    <p style="text-align:center">
+                              <i class="{% if item.averagereview  >= 0.5 %}fas{%else%}far{% endif %} fa-star" style="color:red;"></i>
+                            <i class="{% if item.averagereview  >= 1.5 %}fas{%else%}far{% endif %} fa-star" style="color:red;"></i>
+                            <i class="{% if item.averagereview  >= 2.5 %}fas{%else%}far{% endif %} fa-star" style="color:red;"></i>
+                            <i class="{% if item.averagereview  >= 3.5 %}fas{%else%}far{% endif %} fa-star" style="color:red;"></i>
+                              <i class="{% if item.averagereview  >= 4.5 %}fas{%else%}far{% endif %} fa-star" style="color:red;"></i>
+                          </p>
+                                </strong>
+                            </h5>
+
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>
+                                    {% if item.discount_price %}
+
+                                    {{ item.discount_price|currency:CURRENCY }} {{ CURRENCY.symbol }}
+                                    <span class="badge badge-danger">Saving {{ item.get_amount_saved|currency:CURRENCY }} {{ CURRENCY.symbol}}</span>
+                                    {% else %}
+                                    {{ item.price|currency:CURRENCY }} {{ CURRENCY.symbol}}
+                                   <hr style="visibility: hidden;height:6px;">
+                                    {% endif %}
+
+                                </strong>
+
+                            </h4>
+<a href="{{ item.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">
+                        Add to cart
+                        <i class="fas fa-shopping-cart ml-1"></i>
+                    </a>
+                        </div>
+
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+
+        </section>
+        <!--Section: Products v.3-->
+
+        <!--Pagination-->
+
+        {% if is_paginated %}
+        <nav class="d-flex justify-content-center wow fadeIn">
+            <ul class="pagination pg-blue">
+
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                {% endif %}
+
+                <li class="page-item active">
+                    <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+
+    </div>
+    </div>
+</main>
+
+{% endblock content %}
+
+

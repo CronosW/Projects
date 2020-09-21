@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block content %}
+{% load currency %}
+{% currency_context %}
+<!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark mdb-green  mt-3 mb-5" style="background-color: #333333;">
+
+            <!-- Navbar brand -->
+            <span class="navbar-brand">Categories:</span>
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+
+                <!-- Links -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">All
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories/headphones">Headphones</a></li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/categories/monitor">Monitor</a></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories/mouse">Mouse</a></li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/categories/keyboard">Keyboard</a></li>
+                    <a  href="/categories/offers" class="btn btn-danger btn-sm">Sales</a>
+
+                    {% for slug,name in breadcrumbs %}
+                    <li><a href="/categories/{{ slug }}">{{ name }}</a></li>
+                    {% endfor %}
+                </ul>
+                <!-- Links -->
+                <form class="navbar-form navbar-right" role="search" action="/s/" style="color: yellow;">
+                    <div class="md-form md-outline d-flex justify-content-between align-items-center">
+                        <input type="text" id="search12" class="form-control mb-0" placeholder="Search..." name="q">
+
+                        <button class="btn btn-flat btn-md px-3 waves-effect" style="color: gray;"><i class="fas fa-search fa-lg"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <!-- Collapsible content -->
+
+        </nav>
+        <!--/.Navbar-->
+<br>
+
+<section class="text-center mb-4">
+
+            <div class="row wow fadeIn">
+{% for item in item_set %}
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="view overlay">
+                            {% comment %} <img
+                                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"
+                                class="card-img-top" {% endcomment %}
+                            <img src="{{ item.image.url }}" class="card-img-top" width="200" height="200">
+                            <a href="{{ item.get_absolute_url }}">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>{{ item.get_category_display }}</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
+
+                                    </a>
+                                </strong>
+                            </h5>
+
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>
+                                    {% if item.discount_price %}
+
+                                    {{ item.discount_price|currency:CURRENCY }} {{ CURRENCY.symbol }}
+                                    <span class="badge badge-danger">Saving {{ item.get_amount_saved|currency:CURRENCY }} {{ CURRENCY.symbol}}</span>
+                                    {% else %}
+                                    {{ item.price|currency:CURRENCY }} {{ CURRENCY.symbol}}
+                                   <hr style="visibility: hidden;height:6px;">
+                                    {% endif %}
+
+                                </strong>
+
+                            </h4>
+                            <a href="{{ item.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">
+                        Add to cart
+                        <i class="fas fa-shopping-cart ml-1"></i>
+                    </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </section>
+{% comment %}
+{% if sub_categories %}
+    <h3>Sub Categories</h3>
+    {% for i in sub_categories %}
+        <a href="{{ i.slug }}"> {{ i.name }} </a>
+    {% endfor %}
+{% endif %}
+{% endcomment %}
+{% comment %}
+<div class="row small-up-1 medium-up-3" >
+{% if item_set %}
+{% for i in item_set %}
+    <div class="columns">
+        <div class=" card-article-hover card">
+          <a href="{{ i.slug }}">
+            <img  src="{{ i.cover_photo.url }}">
+          </a>
+          <div class="card-section">
+            <a href="{{ i.slug }}">
+              <h6 class="article-title">{{ i.title | truncatechars:30}}</h6>
+            </a>
+          </div>
+          <div class="card-divider flex-container align-middle">
+            <a href="" class="author">{{ i.user.get_full_name }}</a>
+          </div>
+          <div class="hover-border">
+          </div>
+        </div>
+    </div>
+{% endfor %}
+{% endif %}
+</div>
+{% endcomment %}
+<section class="text-center mb-4">
+            <div class="row wow fadeIn">
+{% for item in items %}
+{% if item.discount_price and request.path == "/categories/offers/" %}
+
+<div class="col-lg-2 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="view overlay">
+                            {% comment %} <img
+                                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"
+                                class="card-img-top" {% endcomment %}
+                            <img src="{{ item.image.url }}" class="card-img-top" width="200" height="200">
+                            <a href="{{ item.get_absolute_url }}">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>{{ item.get_category_display }}</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
+
+                                    </a>
+                                </strong>
+                            </h5>
+
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>
+                                    {% if item.discount_price %}
+                                    {{ item.discount_price|currency:CURRENCY }} {{ CURRENCY.symbol }}
+                                    <span class="badge badge-danger">Saving {{ item.get_amount_saved|currency:CURRENCY }} {{ CURRENCY.symbol}}</span>
+                                    {% else %}
+                                    {{ item.price|currency:CURRENCY }} {{ CURRENCY.symbol}}
+                                    <hr style="visibility: hidden;height:6px;">
+                                    {% endif %}
+
+                                </strong>
+                            </h4>
+                            <a href="{{ item.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">
+                        Add to cart
+                        <i class="fas fa-shopping-cart ml-1"></i>
+                    </a>
+                        </div>
+                    </div>
+                </div>
+{% endif %}
+{% endfor %}
+            </div>
+</section>
+{% endblock %}
+

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="col-md-9">
+    <div class="billing-details">
+        <div class="section-title">
+            <h3 class="title">{{user.username}}'s Orders</h3>
+        </div>
+    </div>
+    <table class="user table">
+            {% for rs in orders %}
+            <tr>
+                <td>{{rs.ordered_date}}</td>
+            <th>Items</th>
+            {% for it in rs.items.all %}
+            <td class="text-left">{{it.item}}</td>
+            {% endfor %}
+
+            {% endfor %}
+        </tr>
+    </table>
+
+</div>
+{% endblock %}

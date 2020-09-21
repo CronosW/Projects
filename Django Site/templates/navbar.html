@@ -1,0 +1,137 @@
+
+{% load cart_template_tags %}
+
+{% load static %}
+{% load currency %}
+{% currency_context %}
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      {%comment%}<a class="navbar-brand waves-effect"  href="/">
+        <strong class="blue-text" style="font-family: "Lucida Console", Courier, monospace;">Hardware shop</strong>
+      </a>{%endcomment%}
+      <a href="/"><img src="/media/logo.jpg" width="280" height="50" alt="Flower"></a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          {% comment %} <li class="nav-item active">
+            <a class="nav-link waves-effect" href="/">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="/checkout">
+            Checkout</a>
+          </li> {% endcomment %}
+        </ul>
+
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons">
+          {% if request.user.is_authenticated %}
+         <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav1"
+    aria-controls="basicExampleNav1" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Links -->
+  <div class="collapse navbar-collapse" id="basicExampleNav1">
+
+    <!-- Right -->
+    <ul class="navbar-nav ml-auto">
+      {% if request.user.userprofile.image %}
+      <li><img src="{{ request.user.userprofile.image.url }}" width="50" height="50"/></li>{% endif %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink3" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="true">
+          My account
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/user">User details</a>
+          <a class="dropdown-item" href="/orders">My orders</a>
+          <a class="dropdown-item" href="/comments">My reviews</a>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+  <!-- Links -->
+          <li class="nav-item">
+            <a href="{% url 'core:order-summary' %}" class="nav-link waves-effect">
+              <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
+              <i class="fas fa-shopping-cart"></i>
+              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'core:wishlist' %}">
+              <i class="far fa-heart"></i>
+              <span class="clearfix d-none d-sm-inline-block"> Wishlist </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'account_logout' %}">
+              <span class="btn-floating btn-sm btn-danger"> Logout </span>
+            </a>
+          </li>
+
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'account_login' %}">
+              <span class="clearfix d-none d-sm-inline-block"> Login </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'account_signup' %}">
+              <span class="clearfix d-none d-sm-inline-block"> Signup </span>
+            </a>
+          </li>
+          {% endif %}
+          <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav10"
+    aria-controls="basicExampleNav10" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Links -->
+  <div class="collapse navbar-collapse" id="basicExampleNav10">
+
+    <!-- Right -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink3" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="true">
+          Currency
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink3">
+          {% for curr in CURRENCIES %}
+
+            <a href="{% url 'core:currencies_set_currency' %}?currency_code={{ curr.code }}"
+                title="{{ curr.name }}">{{ curr.symbol|default:"&nbsp;" }}&nbsp;{{ curr.code }}</a>
+
+        {% endfor %}
+        </div>
+      </li>
+    </ul>
+
+  </div>
+  <!-- Links -->
+
+        </ul>
+      </div>
+
+    </div>
+  </nav>

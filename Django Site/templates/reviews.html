@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+
+                <img src="{{ object.image.url }}" class="img-fluid" alt="">
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+
+                <!--Content-->
+                <div class="p-4">
+
+                    <div class="mb-3">
+                        <a href="">
+                            <span class="badge purple mr-1">{{ object.get_category_display }}</span>
+                        </a>
+                    </div>
+
+                    <p class="lead">
+                        {% if object.discount_price %}
+                        <span class="mr-1">
+                <del>${{ object.price }}</del>
+              </span>
+                        <span>${{ object.discount_price }}</span>
+                        {% else %}
+                        <span>${{ object.price }}</span>
+                        {% endif %}
+                    </p>
+
+                    <p class="lead font-weight-bold">Description</p>
+
+                    <p>{{ object.description }}</p>
+
+                    {% comment %}
+                    <form class="d-flex justify-content-left">
+                        <!-- Default input -->
+                        <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+                        <button class="btn btn-primary btn-md my-0 p" type="submit">
+                            Add to cart
+                            <i class="fas fa-shopping-cart ml-1"></i>
+                        </button>
+
+                    </form>
+                    {% endcomment %}
+                    <a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">
+                        Add to cart
+                        <i class="fas fa-shopping-cart ml-1"></i>
+                    </a>
+                    <a href="{{ object.get_remove_from_cart_url }}" class="btn btn-danger btn-md my-0 p">
+                        Remove from cart
+                    </a>
+
+                </div>
+                <!--Content-->
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+        <hr>
+
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center wow fadeIn">
+
+            <!--Grid column-->
+            <div class="col-md-6 text-center">
+
+                <h4 class="my-4 h4">Additional information</h4>
+
+                <p>{{ item.additional }}</p>
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-12 mb-4">
+
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid"
+                     alt="">
+
+            </div>
+            <!--Grid column-->
+
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4">
+
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid"
+                     alt="">
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4">
+
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid"
+                     alt="">
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+    </div>
+    <div class="col-md-6">
+    <form class="card p-2" action="{% url 'core:itemreview' %}" method="POST">
+        {% csrf_token %}
+        <button class="btn btn-danger btn-md my-0 p">See other reviews</button>
+    </form>
+    </div>
+    <div class="row d-flex justify-content-center wow fadeIn">
+        <div class="col-md-6">
+            <div class="product-reviews">
+                {% for rs in comments %}
+                <div class="single-review">
+                    <div class="review-heading">
+                        <div><a href="#"><i class="fa-user-o"></i> {{ rs.user }} </a></div>
+                        <div><a href="#"><i class="fa-user-o"></i> {{ rs.subject }} </a></div>
+                        <div><a href="#"><i class="fa-clock-o"></i> {{ rs.created }} </a></div>
+                        <div class="review-rating pull-right">
+                            <i class="fa fa-star{% if rs.rate < 1 %}-o empty{% endif %}"></i>
+                            <i class="fa fa-star{% if rs.rate < 2 %}-o empty{% endif %}"></i>
+                            <i class="fa fa-star{% if rs.rate < 3 %}-o empty{% endif %}"></i>
+                            <i class="fa fa-star{% if rs.rate < 4 %}-o empty{% endif %}"></i>
+                            <i class="fa fa-star{% if rs.rate < 5 %}-o empty{% endif %}"></i>
+                        </div>
+                    </div>
+                    <div class="review-body">
+                        <p> {{ rs.comment }} </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h4 class="text-uppercase">Write a review</h4>
+        <form class="card p-2" action="{% url 'core:addcomment' %}" method="POST">
+            {% csrf_token %}
+            <div class="md-form md-outline">
+                <input name="subject" class="form-control" type="text" placeholder="Subject"/>
+            </div>
+            <div class="md-form md-outline">
+                <textarea name="comment" id="form76" class="md-textarea form-control" rows="4"
+                          placeholder="Review"></textarea>
+            </div>
+            <div class="form-group">
+                <div class="input-rating">
+                    <strong class="text-uppercase">Your Rating: </strong>
+                    <div class="form-check">
+                        <input type="radio" id="star5" name="rate" class="form-check-input" value="5"><label
+                            class="form-check-label small text-uppercase card-link-secondary" for="star5">5</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="star4" name="rate" value="4"><label
+                            class="form-check-label small text-uppercase card-link-secondary" for="star4">4</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="star3" name="rate" value="3"><label
+                            class="form-check-label small text-uppercase card-link-secondary" for="star3">3</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="star2" name="rate" value="2"><label
+                            class="form-check-label small text-uppercase card-link-secondary" for="star2">2</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="star1" name="rate" value="1"><label
+                            class="form-check-label small text-uppercase card-link-secondary" for="star1">1</label>
+                    </div>
+                </div>
+            </div>
+            {% if user.id is not None %}
+            <button class="btn btn-danger btn-md my-0 p">Submit</button>
+            {% else %}
+            To send review please log in
+            {% endif %}
+        </form>
+    </div>
+</main>
+
+{% endblock content %}
