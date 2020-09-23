@@ -1,0 +1,86 @@
+﻿  CameraInput.cpp
+  SceneInput.cpp
+  SimpleScene.cpp
+  Engine.cpp
+  GPUBuffers.cpp
+  Mesh.cpp
+  Shader.cpp
+  Texture2D.cpp
+  TextureManager.cpp
+  InputController.cpp
+  WindowCallbacks.cpp
+  WindowObject.cpp
+  World.cpp
+  gl.cpp
+  Laborator1.cpp
+  Laborator2.cpp
+  Laborator3.cpp
+  Laborator3_Vis2D.cpp
+  Object2D.cpp
+  Laborator4.cpp
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(27,40): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(60,16): warning C4477: 'fscanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'int'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(199,39): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(200,39): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(203,39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(583,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(589,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(595,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(601,44): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(607,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(613,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(619,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(625,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(631,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(637,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(643,47): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(649,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(655,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(661,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(667,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(673,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(679,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(685,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(691,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(697,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(703,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(709,47): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(715,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(722,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(728,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(734,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(740,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(746,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(752,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(758,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(764,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(770,47): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator3\Laborator3.cpp(810,37): warning C4305: '=': truncation from 'double' to 'float'
+  Laborator5.cpp
+  Laborator6.cpp
+  Laborator7.cpp
+  Laborator8.cpp
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator6\Laborator6.h(28,8): warning C4101: 'score': unreferenced local variable (compiling source file ..\Source\Laboratoare\Laborator6\Laborator6.cpp)
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator6\Laborator6.cpp(235,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator6\Laborator6.cpp(441,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator6\Laborator6.cpp(442,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator6\Laborator6.cpp(443,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator6\Laborator6.cpp(1099,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator6\Laborator6.cpp(1229,16): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator6\Laborator6.cpp(1245,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator6\Laborator6.cpp(1253,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Laborator9.cpp
+  Main.cpp
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator9\Laborator9.cpp(219,83): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator9\Laborator9.cpp(234,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bestr\Desktop\Flappy Bird\Source\Laboratoare\Laborator6\Laborator6.h(28,8): warning C4101: 'score': unreferenced local variable (compiling source file ..\Source\Main.cpp)
+  Framework_EGC.vcxproj -> C:\Users\bestr\Desktop\Flappy Bird\Visual Studio\..\x64\Debug\Framework_EGC.exe
+  A subdirectory or file C:\Users\bestr\Desktop\Flappy Bird\Visual Studio\scripts\..\..\x64\Debug already exists.
+  C:\Users\bestr\Desktop\Flappy Bird\Visual Studio\scripts\..\..\libs\GL\x64\Release\glew32.dll
+  1 File(s) copied
+  C:\Users\bestr\Desktop\Flappy Bird\Visual Studio\scripts\..\..\libs\GLFW\x64\Debug\glfw3.dll
+  1 File(s) copied
+  C:\Users\bestr\Desktop\Flappy Bird\Visual Studio\scripts\..\..\libs\assimp\x64\Debug\assimpd.dll
+  1 File(s) copied
+  C:\Users\bestr\Desktop\Flappy Bird\Visual Studio\scripts\..\..\libs\Engine\x64\Debug\Components.dll
+  1 File(s) copied
